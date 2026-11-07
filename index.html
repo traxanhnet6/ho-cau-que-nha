@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HỒ CÂU QUÊ NHÀ — Game câu cá TikTok LIVE (Mốc 1: mô phỏng chat)</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" width="1080" height="1920"></canvas>
+  </div>
+
+  <aside id="panel">
+    <h1>Bảng điều khiển — Mốc 1 (mô phỏng)</h1>
+    <p class="hint">Trang game bên trái là khung hình phát live 9:16. Mọi sự kiện mô phỏng và nhập tay đều đi qua cùng một giao diện sự kiện mà cầu nối TikTok thật sẽ dùng ở Mốc 2. Mở trang với <code>?clean=1</code> để ẩn bảng này khi phát live.</p>
+
+    <section>
+      <h2>Bộ mô phỏng chat</h2>
+      <label class="row"><input type="checkbox" id="sim-enabled"> Bật người xem ảo</label>
+      <label class="row">Mật độ người xem: <input type="range" id="sim-density" min="0" max="30" step="1"> <b id="sim-density-val"></b></label>
+      <label class="row">Nhịp tặng quà: <input type="range" id="sim-gift" min="0" max="100" step="5"> <b id="sim-gift-val"></b></label>
+      <div class="row buttons">
+        <button type="button" id="btn-add-viewer">+ Thêm người xem</button>
+        <button type="button" id="btn-monster">Kích thủy quái ngay</button>
+        <button type="button" id="btn-golden">Bật Giờ Vàng</button>
+        <button type="button" id="btn-end-session">Kết thúc buổi</button>
+      </div>
+      <p id="simstats" class="stats"></p>
+    </section>
+
+    <section>
+      <h2>Nhập tay như người xem thật</h2>
+      <label class="row">Tên người xem: <input type="text" id="manual-name" value="Khách Ghé Hồ" size="18"></label>
+      <label class="row">Nội dung chat: <input type="text" id="manual-text" placeholder='ví dụ: câu cá' size="22"></label>
+      <div class="row buttons">
+        <button type="button" id="btn-manual-chat">Gửi chat</button>
+      </div>
+      <div class="row" id="quick-cmds"></div>
+      <label class="row">Tặng Hoa hồng: <input type="number" id="manual-roses" value="10" min="1" max="500">
+        <button type="button" id="btn-manual-gift">Tặng</button></label>
+      <p class="hint">Ngưỡng nâng cần trong buổi: 1 🌹 Cần trung cấp · 10 🌹 Cần cao cấp · 50 🌹 Cần thượng cổ.</p>
+    </section>
+
+    <section>
+      <h2>Nhật ký sự kiện</h2>
+      <pre id="eventlog"></pre>
+    </section>
+  </aside>
+
+  <script src="js/config.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/simulator.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
